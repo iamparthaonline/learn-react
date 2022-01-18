@@ -1,3 +1,4 @@
+// hooks will only be available for functional components.
 import { useState, useEffect } from "react";
 import CountClass from "./CountClass";
 

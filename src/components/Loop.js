@@ -5,9 +5,9 @@ const Loop = function () {
     <div>
       Loop
       <ul>
-        {loopArray.map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
+        {loopArray.map((item, index) => {
+          return <li key={index}>{item}</li>;
+        })}
       </ul>
     </div>
   );
