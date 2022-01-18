@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 /** Class component using state */
-class CountComponent extends Component {
+class ClassCountComponent extends Component {
   constructor(props) {
     super(props);
 
@@ -10,7 +10,9 @@ class CountComponent extends Component {
       text: "",
       numberOfWords: 0,
     };
-    console.log("constructed");
+
+    this.inputRef = React.createRef();
+    console.log("Constructor Method is called");
   }
 
   increaseCount() {
@@ -20,20 +22,23 @@ class CountComponent extends Component {
   }
 
   componentDidMount() {
-    console.log("mounted");
+    console.log("componentDidMount method is called");
   }
 
   componentDidUpdate(nextState, prevState) {
-    console.log("updated", { nextState, prevState });
+    console.log("componentDidUpdate method is called", {
+      nextState,
+      prevState,
+    });
   }
 
   componentWillUnmount() {
-    console.log("going to be unmounted");
+    console.log("componentWillUnmount method is called");
   }
 
   render() {
     return (
-      <div>
+      <div style={{ background: "#ccc" }}>
         <p>Class Based Count: {this.state.count} </p>
         <button onClick={() => this.increaseCount()}>Increase</button>
 
@@ -72,18 +77,28 @@ class CountComponent extends Component {
               this.setState({
                 numberOfWords: count,
               });
+              console.log("Reference - ", this.inputRef.current.value);
             }}
           >
-            <input
-              type="text"
-              name="sentence"
-              onChange={(event) => {
-                this.setState({
-                  text: event.target.value,
-                });
-              }}
-              value={this.state.text}
-            />
+            <div>
+              <label>Controlled Input </label>
+              <input
+                type="number"
+                name="sentence"
+                onChange={(event) => {
+                  this.setState({
+                    text: event.target.value,
+                  });
+                }}
+                value={this.state.text}
+              />
+            </div>
+
+            <div>
+              <label>Uncontrolled input </label>
+              <input type="date" name="data" ref={this.inputRef} />
+            </div>
+
             <button type="submit">Submit</button>
           </form>
           <p>Number of Words: {this.state.numberOfWords}</p>
@@ -92,4 +107,4 @@ class CountComponent extends Component {
     );
   }
 }
-export default CountComponent;
+export default ClassCountComponent;

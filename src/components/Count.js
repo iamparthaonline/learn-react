@@ -1,12 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CountClass from "./CountClass";
 
 /** Functional component using useState hook */
-const Count = function (props) {
+const FunctionalCountComponent = function (props) {
   const [count, setCount] = useState(props.initialValue);
+
   const [show, setShow] = useState(false);
+
+  /** using effect hook */
+  useEffect(function () {
+    console.log("Update Happened - useffect");
+  });
+
   return (
-    <div>
+    <div style={{ background: "#eee" }}>
       <p>Function Based Count: {count}</p>
       <button
         onClick={function () {
@@ -49,6 +56,7 @@ const Count = function (props) {
       >
         Show Class Component
       </button>
+
       {show && (
         <div>
           <CountClass initialValue={count} />
@@ -58,4 +66,4 @@ const Count = function (props) {
   );
 };
 
-export default Count;
+export default FunctionalCountComponent;
