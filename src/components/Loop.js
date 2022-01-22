@@ -11,8 +11,8 @@ const Loop = function () {
       </ul>
       <div className="container">
         <form>
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">
+          <div className="mb-3">
+            <label htmlFor="exampleInputEmail1" className="form-label">
               Name ( store in localstorage )
             </label>
             <input
@@ -23,11 +23,11 @@ const Loop = function () {
                   localStorage.setItem("name", e.target.value);
                 }
               }}
-              class="form-control"
+              className="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
             />
-            <div id="emailHelp" class="form-text">
+            <div id="emailHelp" className="form-text">
               We'll never share your email with anyone else.
             </div>
           </div>

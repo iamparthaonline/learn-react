@@ -23,6 +23,9 @@ class ClassCountComponent extends Component {
 
   componentDidMount() {
     console.log("componentDidMount method is called");
+    this.intervalReference = setInterval(() => {
+      console.log("HI -- ", +new Date());
+    }, 1000);
   }
 
   componentDidUpdate(nextState, prevState) {
@@ -33,6 +36,7 @@ class ClassCountComponent extends Component {
   }
 
   componentWillUnmount() {
+    clearInterval(this.intervalReference);
     console.log("componentWillUnmount method is called");
   }
 
@@ -77,7 +81,7 @@ class ClassCountComponent extends Component {
               this.setState({
                 numberOfWords: count,
               });
-              console.log("Reference - ", this.inputRef.current.value);
+              console.log("Reference - ", this.inputRef);
             }}
           >
             <div>
@@ -96,7 +100,12 @@ class ClassCountComponent extends Component {
 
             <div>
               <label>Uncontrolled input </label>
-              <input type="date" name="data" ref={this.inputRef} />
+              <input
+                type="date"
+                name="data"
+                id="date-input"
+                ref={this.inputRef}
+              />
             </div>
 
             <button type="submit">Submit</button>
