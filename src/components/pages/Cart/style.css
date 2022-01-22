@@ -1,0 +1,39 @@
+.cart-product,
+.total-price{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.total-price{
+    border: 1px solid #eee;
+    padding: 15px;
+    border-left: none;
+    border-right: none;
+}
+
+.cart-product img{
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+}
+
+.cart-product-title{
+    padding: 20px;
+    width: calc(100vw - 200px);
+}
+.cart-product-title h2{
+    font-size: 12px;
+}
+
+.cart-product-count{
+    width: 100px;
+    text-align: center;
+}
+.cart-product-count button{
+    padding: 10px;
+    width: auto;
+    border: 1px solid #eee;
+    background-color: #fff;
+    margin-top: 10px;
+}

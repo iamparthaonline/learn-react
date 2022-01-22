@@ -14,7 +14,9 @@ ReactDom.render(
     <Routes>
       <Route path="/" element={<Heading title="Home Page" />} />
       <Route path="/products-list" element={<ProductsList />} />
-      <Route path="/product-details" element={<ProductDetails />} />
+      <Route path="/product-details" element={<ProductDetails />}>
+        <Route path=":productId" element={<ProductDetails />} />
+      </Route>
       <Route path="/cart" element={<CartPage />} />
     </Routes>
   </BrowserRouter>,
